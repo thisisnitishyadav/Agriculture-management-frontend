@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { login } from '../../api/auth';
 import { Link } from 'react-router-dom';
 
@@ -6,12 +7,16 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await login({ email, password });
       setMessage('Login successful!');
+      
+      // Navigate to the "Field" page
+      navigate('/dashboard');
     } catch (error) {
       setMessage('Login failed: ' + error.message);
     }
@@ -51,7 +56,7 @@ const Login = () => {
       <div className='my-4'>
         Don't have an account? <span className='text-blue-500 cursor-pointer underline'>
           <Link to='/signup'>Signup</Link>
-          </span>
+        </span>
       </div>
       {message && <p className="mt-4 text-gray-600">{message}</p>}
     </div>

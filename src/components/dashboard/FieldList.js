@@ -39,8 +39,8 @@ const FieldList = () => {
     const newFieldData = { name: newFieldName, cropType: newFieldCropType };
     try {
       const createdField = await createField(newFieldData);
-      setFields([...fields, createdField]); // Add the newly created field to the list
-      setNewFieldName(''); // Clear input fields
+      setFields([...fields, createdField]); 
+      setNewFieldName(''); 
       setNewFieldCropType('');
     } catch (error) {
       console.error('Failed to create field:', error);
