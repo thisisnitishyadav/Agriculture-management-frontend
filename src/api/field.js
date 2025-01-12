@@ -1,13 +1,13 @@
 import axios from 'axios';
-import { getToken, getUserId } from './authUtil'; // Import the functions to get token and userId
+import { getToken, getUserId } from './authUtil'; 
 
 // Helper function to get headers with Authorization
 const getHeaders = () => {
   const token = getToken();
   const userId = getUserId();
   const headers = {
-    Authorization: token ? `Bearer ${token}` : '', // Add token in Authorization header if available
-    'User-Id': userId || '', // Optionally add userId in headers if needed
+    Authorization: token ? `Bearer ${token}` : '', 
+    'User-Id': userId || '', 
   };
   return headers;
 };
