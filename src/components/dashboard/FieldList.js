@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getFields, deleteField } from '../../api/fields';
+import { getFields, deleteField } from '../../api/field';
 
 const FieldList = () => {
   const [fields, setFields] = useState([]);
