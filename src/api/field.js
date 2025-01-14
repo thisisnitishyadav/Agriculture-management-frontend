@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { getToken, getUserId } from './authUtil'; 
 
-// Helper function to get headers with Authorization
+// helper function to get headers with Authorization
 const getHeaders = () => {
   const token = getToken();
   const userId = getUserId();
@@ -12,7 +12,7 @@ const getHeaders = () => {
   return headers;
 };
 
-// Get all fields
+// get all fields
 export const getFields = async () => {
   try {
     const response = await axios.get(`${process.env.REACT_APP_URL}/api/field`, {
@@ -25,7 +25,7 @@ export const getFields = async () => {
   }
 };
 
-// Create a new field
+// create a new field
 export const createField = async (fieldData) => {
   try {
     const response = await axios.post(
@@ -40,7 +40,7 @@ export const createField = async (fieldData) => {
   }
 };
 
-// Delete a field by ID
+// delete a field by ID
 export const deleteField = async (fieldId) => {
   try {
     const response = await axios.delete(
@@ -54,7 +54,7 @@ export const deleteField = async (fieldId) => {
   }
 };
 
-// Update a field by ID
+// update a field by ID
 export const updateField = async (fieldId, fieldData) => {
   try {
     const response = await axios.put(

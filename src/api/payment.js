@@ -5,5 +5,5 @@ export const processPayment = async (paymentData) => {
   return response.data;
 };
 
-// Payment APIs
-// export const initiatePayment = (paymentData) => API.post('/payments', paymentData);
+// payment api
+

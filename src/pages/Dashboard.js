@@ -5,7 +5,7 @@ import FieldList from '../components/dashboard/FieldList';
 const Dashboard = () => (
   <div className="container mx-auto">
   <h1 className="text-3xl font-bold text-blue-500 my-4">Dashboard</h1>
-  <FieldForm />
+  {/* <FieldForm /> */}
   <FieldList />
 </div>
 );

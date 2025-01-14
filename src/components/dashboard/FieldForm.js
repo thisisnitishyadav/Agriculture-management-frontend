@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import { createField } from '../../api/field';
 
-const FieldForm = ({ userId,onFieldAdded }) => {
+const FieldForm = ({ userId, onFieldAdded }) => {
   const [name, setName] = useState('');
-  const [latitude,setLatitude]=useState('');
-  const [longitude,setLongitude]=useState('');
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
   const [cropType, setCropType] = useState('');
   const [areaSize, setAreaSize] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const newField = await createField({ user: userId, name, location: { latitude, longitude }, cropType, areaSize });
+      const newField = await createField({
+        user: userId,
+        name,
+        location: { latitude, longitude },
+        cropType,
+        areaSize,
+      });
       if (onFieldAdded) onFieldAdded(newField);
       setName('');
       setLatitude('');
@@ -32,30 +38,30 @@ const FieldForm = ({ userId,onFieldAdded }) => {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder='Enter field name'
+          placeholder="Enter field name"
           className="w-full px-3 py-2 border rounded"
           required
         />
       </div>
       <div className="mb-4">
         <label className="block text-gray-700 mb-2">Location</label>
-        <div className='flex gap-4'>
-        <input
-          type="latitude"
-          value={latitude}
-          onChange={(e) => setLatitude(e.target.value)}
-          placeholder='Enter latitude (e.g. 45.65°N)'
-          className="w-full px-3 py-2 border rounded"
-          required
-        />
-         <input
-          type="longitude"
-          value={longitude}
-          onChange={(e) => setLongitude(e.target.value)}
-          placeholder='Enter longitude (e.g. 56.76°E)'
-          className="w-full px-3 py-2 border rounded"
-          required
-        />
+        <div className="flex gap-4">
+          <input
+            type="text"
+            value={latitude}
+            onChange={(e) => setLatitude(e.target.value)}
+            placeholder="Enter latitude (e.g. 45.65°N)"
+            className="w-full px-3 py-2 border rounded"
+            required
+          />
+          <input
+            type="text"
+            value={longitude}
+            onChange={(e) => setLongitude(e.target.value)}
+            placeholder="Enter longitude (e.g. 56.76°E)"
+            className="w-full px-3 py-2 border rounded"
+            required
+          />
         </div>
       </div>
       <div className="mb-4">
@@ -64,7 +70,7 @@ const FieldForm = ({ userId,onFieldAdded }) => {
           type="text"
           value={cropType}
           onChange={(e) => setCropType(e.target.value)}
-          placeholder='Enter crop type'
+          placeholder="Enter crop type"
           className="w-full px-3 py-2 border rounded"
           required
         />
@@ -75,7 +81,7 @@ const FieldForm = ({ userId,onFieldAdded }) => {
           type="text"
           value={areaSize}
           onChange={(e) => setAreaSize(e.target.value)}
-          placeholder='Enter fields area'
+          placeholder="Enter field area"
           className="w-full px-3 py-2 border rounded"
           required
         />
