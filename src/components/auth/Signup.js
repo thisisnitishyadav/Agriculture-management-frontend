@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { signup } from '../../api/auth';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
   const [name, setName] = useState('');
@@ -33,6 +34,7 @@ const Signup = () => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            placeholder='Enter name'
             className="w-full px-3 py-2 border rounded"
             required
           />
@@ -43,6 +45,7 @@ const Signup = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder='Enter email-id'
             className="w-full px-3 py-2 border rounded"
             required
           />
@@ -53,6 +56,7 @@ const Signup = () => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            placeholder='Create password'
             className="w-full px-3 py-2 border rounded"
             required
           />
@@ -64,6 +68,11 @@ const Signup = () => {
           Signup
         </button>
       </form>
+      <div className='my-4'>
+        Already have an account? <span className='text-blue-500 cursor-pointer underline'>
+          <Link to='/login'>Login</Link>
+        </span>
+      </div>
       {message && <p className="mt-4 text-gray-600">{message}</p>}
     </div>
   );

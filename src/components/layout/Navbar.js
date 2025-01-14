@@ -17,7 +17,7 @@ const Navbar = () => {
           {auth.isAuthenticated ? (
             <>
               <span className="hover:underline cursor-default">
-                Hi, {auth.name}
+                Hi {auth.name}
               </span>
               <Link to="/dashboard" className="hover:underline">
                 Dashboard

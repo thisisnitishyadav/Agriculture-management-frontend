@@ -3,7 +3,6 @@ import { createField } from '../../api/field';
 
 const FieldForm = ({ userId,onFieldAdded }) => {
   const [name, setName] = useState('');
-  // const [location, setLocation] = useState('');
   const [latitude,setLatitude]=useState('');
   const [longitude,setLongitude]=useState('');
   const [cropType, setCropType] = useState('');
@@ -33,6 +32,7 @@ const FieldForm = ({ userId,onFieldAdded }) => {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          placeholder='Enter field name'
           className="w-full px-3 py-2 border rounded"
           required
         />
@@ -44,6 +44,7 @@ const FieldForm = ({ userId,onFieldAdded }) => {
           type="latitude"
           value={latitude}
           onChange={(e) => setLatitude(e.target.value)}
+          placeholder='Enter latitude (e.g. 45.65°N)'
           className="w-full px-3 py-2 border rounded"
           required
         />
@@ -51,6 +52,7 @@ const FieldForm = ({ userId,onFieldAdded }) => {
           type="longitude"
           value={longitude}
           onChange={(e) => setLongitude(e.target.value)}
+          placeholder='Enter longitude (e.g. 56.76°E)'
           className="w-full px-3 py-2 border rounded"
           required
         />
@@ -62,6 +64,7 @@ const FieldForm = ({ userId,onFieldAdded }) => {
           type="text"
           value={cropType}
           onChange={(e) => setCropType(e.target.value)}
+          placeholder='Enter crop type'
           className="w-full px-3 py-2 border rounded"
           required
         />
@@ -72,6 +75,7 @@ const FieldForm = ({ userId,onFieldAdded }) => {
           type="text"
           value={areaSize}
           onChange={(e) => setAreaSize(e.target.value)}
+          placeholder='Enter fields area'
           className="w-full px-3 py-2 border rounded"
           required
         />
